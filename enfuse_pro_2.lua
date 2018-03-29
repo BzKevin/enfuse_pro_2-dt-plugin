@@ -19,18 +19,6 @@
 
 --[[ Enfuse Pro 2 - cross-platform compatible
 Modified by: Kevin Ertel
-
-NOTES:
-Some new features added over the original version:
-  -Apply style on auto-impot
-  -Copy dt Tags on auto-import
-  -Add new tags on auto-impot
-  -Bypass output file path chooser via "import at source file location" option
-  -fixed the "on conflict - create unique filename" behavior to function properly
-
-Loss of functionality compared to original version:
-  -Language translations
-  -Reset button has no effect
    
 ADDITIONAL SOFTWARE NEEDED FOR THIS SCRIPT
 * align_image_stack
