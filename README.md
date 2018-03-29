@@ -10,3 +10,9 @@ The version hosted here on GitHub is my modified version. The modifications are 
 -add new tags on auto-import
 -fixed "on conflict create unique name" behavior to function properly
 -bypass output file path chooser via "import at source image location" option
+
+Loss of functionality compared to original version:
+  -Language translations
+  -Reset button has no effect
+  
+  Version 1.0 - Original Release
