@@ -16,3 +16,4 @@ Loss of functionality compared to original version:
   -Reset button has no effect
   
   Version 1.0 - Original Release
+  Version 1.1 - Resolved Mac Compatability issues
