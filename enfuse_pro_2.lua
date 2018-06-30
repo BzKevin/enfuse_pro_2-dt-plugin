@@ -1,5 +1,4 @@
---[[
-  Enfuse professional plugin for darktable 2.2.X and 2.4.X
+--[[Enfuse professional plugin for darktable 2.2.X and 2.4.X
 
   copyright (c) 2017, 2018  Holger Klemm (Original Linux-only version)
   
@@ -599,21 +598,20 @@ local function build_execute_command(cmd, args, file_list)
 	local result = false
 
 	if dt.configuration.running_os == "macos" then
-		if not string.match(cmd, "^open ") then
-			cmd = "open -W -a "..cmd
-		end
-		if string.length(args) > 1 then
-			result = cmd..""..file_list.." --args"..args
-		else
-			result = cmd..""..file_list
-		end
-	else
-		result = cmd..""..args.." "..file_list
+		cmd = string.gsub(cmd, "open", "")
+		cmd = string.gsub(cmd, "-W", "")
+		cmd = string.gsub(cmd, "-a", "")
+	--	result = cmd.." "..file_list.." "..args
+	--else
+	--	result = cmd..""..args.." "..file_list
 	end
-
+	result = cmd.." "..args.." "..file_list
 	return result
 end
 function copy_exif()
+	exiftool_path = string.gsub(exiftool_path, "open", "")
+	exiftool_path = string.gsub(exiftool_path, "-W", "")
+	exiftool_path = string.gsub(exiftool_path, "-a", "")
 	exifStartCommand = exiftool_path.." -TagsFromFile "..source_file.." -exif:all --subifd:all -overwrite_original "..path_with_filename
 	dt.print_log("EXIFTool Start Command: "..exifStartCommand)
 	resultexif=dt.control.execute(exifStartCommand)
@@ -643,7 +641,7 @@ function align_images()
 	
 	align_args = align_args.." -a "..first_path.."aligned_ "
 	alignStartCommand = build_execute_command(AIS_path, align_args, images_to_align)
-	dt.print_log("Align Start Cmmand: "..alignStartCommand)
+	dt.print_log("Align Start Command: "..alignStartCommand)
 	resp = dt.control.execute(alignStartCommand)
 	dt.print_log("Completed Align")
 	return resp
