@@ -598,9 +598,9 @@ local function build_execute_command(cmd, args, file_list)
 	local result = false
 
 	if dt.configuration.running_os == "macos" then
-		cmd = string.gsub(cmd, "open", "")
-		cmd = string.gsub(cmd, "-W", "")
-		cmd = string.gsub(cmd, "-a", "")
+		cmd = string.gsub(cmd, "open", "", 1)
+		cmd = string.gsub(cmd, "-W", "", 1)
+		cmd = string.gsub(cmd, "-a", "", 1)
 	--	result = cmd.." "..file_list.." "..args
 	--else
 	--	result = cmd..""..args.." "..file_list
